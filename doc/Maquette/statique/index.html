@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IMMOBLADE</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./vue/vue.js" defer></script>
+</head>
+
+<body>
+    <br>
+    <div class="container main" id="homepage">
+        <nav>
+            <ul class="flexbox">
+                <li><img src="./image/Image1.png"></li>
+                <li><a href="#"> Campagnes </a></li>
+            </ul>
+        </nav>
+        <br>
+        <main>
+            <h2> Campagnes en cours: </h2>
+            <br>
+            <div v-for="(item, index) in entreprises">
+                <div class="block">
+                    <div id="text">
+                        <br>
+                        Entreprise: {{item.nom}} <br>
+                        Adresse: {{item.adresse.numero}} {{item.adresse.rue}} {{item.adresse.codePostal}} {{item.adresse.ville}} <br>
+                    </div>
+                    <div>
+                        <h3>Mesures:</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                        <th>Grandeurs</th>
+                                        <th>Salle Equipe:</th>
+                                    <th>Salle Témoin</th>
+                                    <th>Ecart</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Temperature
+                                    </td>
+                                    <td>
+                                        {{temperature[0]}} °C
+                                    </td>
+                                    <td>
+                                        {{temperature[1]}} °C
+                                    </td>
+                                    <td>
+                                        {{temperature[1] - temperature[0]}} °C
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Luminosite
+                                    </td>
+                                    <td>
+                                        {{luminosite[0]}} lux
+                                    </td>
+                                    <td>
+                                        {{luminosite[1]}} lux
+                                    </td>
+                                    <td>
+                                        {{luminosite[1] - luminosite[0]}} lux
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Flux Solaire
+                                    </td>
+                                    <td>
+                                        {{flux_solaire[0]}} w/m²
+                                    </td>
+                                    <td>
+                                        {{flux_solaire[1]}} W/m²
+                                    </td>
+                                    <td>
+                                        {{flux_solaire[1] - flux_solaire[0]}} W/²
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" :style="{ width: progress + '%' }"
+                            aria-valuenow="progress" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>Copyright © 2023 IMMOBLADE</p>
+        </footer>
+    </div>
+</body>
+
+</html>
