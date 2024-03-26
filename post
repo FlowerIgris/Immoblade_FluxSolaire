@@ -1,0 +1,24 @@
+curl -X POST \
+ -H "Content-Type: application/json" \
+ -d '{"date": 'test}'\
+ -s http://localhost:3000/mesures
+
+curl -X POST \
+ -H "Content-Type: application/json" \
+ -d '{"_id": "7867867867867868", "idCapteur": "temoin", "type": 84, "payload": "28.2", "date": "2023-06-12T10:21:43.000Z"}'\
+ -s http://localhost:3000/mesures
+
+curl -X POST \
+ -H "Content-Type: application/json" \
+ -d '{"_id": "7867867867867868", "idCapteur": "equipe", "type": 76, "payload": "800", "date": "2023-06-13T12:05:43.000Z"}'\
+ -s http://localhost:3000/mesures
+
+ curl -X POST \
+ -H "Content-Type: application/json" \
+ -d '[{"id": "equipe", "mesure": 21},{"id": "temoin", "mesure":21}]'\
+ -s http://localhost:3000/mesures
+
+ curl -X POST \
+ -H "Content-Type: application/json" \
+ -d '[{"id": "equipe", "mesure": 20},{"id": "temoin", "mesure":23}]'\
+ -s http://localhost:3000/mesures
